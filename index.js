@@ -36,7 +36,7 @@ bot.on('message', function(event) {
 				});
 				break;
 			default:
-				event.reply("蛤！你說什麼？").then(function(data) {
+				event.reply("蛤！你說 " + msg + " ?").then(function(data) {
 					// sucess
 					console.log(userID + " : " + msg);
 				}).catch(function(error) {

@@ -40,8 +40,8 @@ bot.on('message', function(event) {
 		var msg = event.message.text;
 		var userID = event.source.userId;
 		switch(msg){
-			case "my userId":
-				event.reply("Your userId = " + userID).then(function(data) {
+			case "userid":
+				event.reply("Your userId is " + userID).then(function(data) {
 					// sucess
 					console.log("User Id = " + userID);
 				}).catch(function(error) {

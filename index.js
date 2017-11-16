@@ -5,9 +5,9 @@ const config = require('./config.json'),
 	util = require('util');
 
 let bot = linebot({
-	channelId: '1545688189',
-	channelSecret: '3d9fd88a284afa8b023c8a95ad39425e',
-	channelAccessToken: '4muvJafSuXaVcDO3WKUzMrQVUeyLnzK5pBb9As/cn+mGebIDwv7EvaxUpR+Rl+uEmEN4jEEuELt7sqd+id8ecEEa8ruOKp1YlSJJX01F1SUJ0g6MkrauV+0rs8xBtj6AIQmrKhV3KBjcsQUmyLhz2wdB04t89/1O/w1cDnyilFU='
+	channelId: config.channelId,
+	channelSecret: config.channelSecret,
+	channelAccessToken: config.channelAccessToken
 });
 
 bot.on('message', function(event) {
@@ -61,7 +61,7 @@ let server = app.listen(process.env.PORT || 8080,function() {
 
 // 主動發訊息給 Client App
 setTimeout(function() {
-	var get_userId = 'U2ba452aaac8c5be6c2bdf5e956698e76';
+	var get_userId = config.clientAppUserID;
 	var sendMsg = "push msg to one user";
 	bot.push(get_userId, [sendMsg]);
 	console.log('userId: ' + get_userId);

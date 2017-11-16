@@ -82,13 +82,12 @@ let server = app.listen(process.env.PORT || 8080,function() {
 	let port = server.address().port;
 	console.log("My Line bot App running on port", port);
 });
-// bot.push(config.clientAppUserID, "Nope！ Don't do that！！");
 
 // 主動發訊息給 Client App
 setTimeout(function() {
-	var get_userId = config.clientAppUserID;
+	var get_userId = 'U2ba452aaac8c5be6c2bdf5e956698e76';
 	var sendMsg = "push msg to one user";
-	bot.push(get_userId, sendMsg);
+	bot.push(get_userId, [sendMsg]);
 	console.log('userId: ' + get_userId);
 	console.log('send: ' + sendMsg);
 },3000);

@@ -10,7 +10,7 @@ let bot = linebot({
 	channelAccessToken: '4muvJafSuXaVcDO3WKUzMrQVUeyLnzK5pBb9As/cn+mGebIDwv7EvaxUpR+Rl+uEmEN4jEEuELt7sqd+id8ecEEa8ruOKp1YlSJJX01F1SUJ0g6MkrauV+0rs8xBtj6AIQmrKhV3KBjcsQUmyLhz2wdB04t89/1O/w1cDnyilFU='
 });
 
-/*bot.on('message', function(event) {
+bot.on('message', function(event) {
 	// 把收到訊息的 event 印出來
 	// console.log(event);
 	if(event.message.type === 'sticker') {
@@ -46,7 +46,7 @@ let bot = linebot({
 				break;
 		}
 	}
-});*/
+});
 
 
 const linebotParser = bot.parser(),

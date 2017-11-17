@@ -62,7 +62,7 @@ let server = app.listen(process.env.PORT || 8080,function() {
 // 主動發訊息給 Client App
 setTimeout(function() {
 	var get_userId = config.clientAppUserID;
-	var sendMsg = "push msg to one user";
+	var sendMsg = "想你>< 上課要加油哦～";
 	bot.push(get_userId, [sendMsg]);
 	console.log('userId: ' + get_userId);
 	console.log('send: ' + sendMsg);

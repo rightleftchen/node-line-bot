@@ -9,14 +9,6 @@ let bot = linebot({
 	channelSecret: config.channelSecret,
 	channelAccessToken: config.channelAccessToken
 });
-// 主動發訊息給 Client App
-setTimeout(function() {
-	var get_userId = config.clientAppUserID;
-	var sendMsg = "test fuckyou";
-	bot.push(get_userId, [sendMsg]);
-	console.log('userId: ' + get_userId);
-	console.log('send: ' + sendMsg);
-},100); // 0.1 seconds
 
 bot.on('message', function(event) {
 	// 把收到訊息的 event 印出來
@@ -66,5 +58,14 @@ let server = app.listen(process.env.PORT || 8080,function() {
 	let port = server.address().port;
 	console.log("My Line bot App running on port", port);
 });
+
+// 主動發訊息給 Client App
+setTimeout(function() {
+	var get_userId = config.clientAppUserID;
+	var sendMsg = "test fuckyou";
+	bot.push(get_userId, [sendMsg]);
+	console.log('userId: ' + get_userId);
+	console.log('send: ' + sendMsg);
+},100); // 0.1 seconds
 
 

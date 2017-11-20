@@ -2,7 +2,7 @@
   "name": "node-line-bot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "pushreply.js",
   "scripts": {
     "start": "node ."
   },

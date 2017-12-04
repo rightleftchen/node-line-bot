@@ -1,3 +1,4 @@
+
 let linebot = require('linebot'),
 	express = require('express');
 
@@ -5,46 +6,30 @@ const config = require('./config.json'),
 	util = require('util');
 
 let bot = linebot({
-	channelId: config.channelId,
-	channelSecret: config.channelSecret,
-	channelAccessToken: config.channelAccessToken
+	channelId: 'channelId',
+	channelSecret: 'channelSecret',
+	channelAccessToken: 'channelAccessToken'
 });
 
 bot.on('message', function(event) {
-	// 把收到訊息的 event 印出來
-	// console.log(event);
-	if(event.message.type === 'sticker') {
-		event.reply("調皮搗蛋！！ 誰叫你傳貼圖的！！").then(function(data) {
-			// sucess
-			console.log(userID + " : [傳貼圖]");
-		}).catch(function(error) {
-		// error
-			console.log('error');
-		});
-	}
-	else if(event.message.type = 'text') {
+	if(event.message.type = 'text') {
 		var msg = event.message.text;
 		var userID = event.source.userId;
-		switch(msg){
-			case "userid":
-				event.reply("Your userId is " + userID).then(function(data) {
-					// sucess
-					console.log("User Id = " + userID);
-				}).catch(function(error) {
-					// error
-					console.log('error');
-				});
-				break;
-			default:
-				event.reply("蛤！你說 " + msg + " ?").then(function(data) {
-					// sucess
-					console.log(userID + " : " + msg);
-				}).catch(function(error) {
-					// error
-					console.log('error');
-				});
-				break;
-		}
+		event.reply(userID + "：" + msg).then(function(data) {
+			// sucess
+			console.log(userID + " : " + msg);
+		}).catch(function(error) {
+			// error
+			console.log('error');
+		});
+
+		client.once( "connect", function () {
+    		console.log( 'Client: Connected to port 8000' );
+    		client.emit( "LINE", "Hello World", function ( message ) {
+        		console.log( 'Echo received: ', message );
+        		client.disconnect();
+    		} );
+		} );
 	}
 });
 
@@ -61,11 +46,10 @@ let server = app.listen(process.env.PORT || 8080,function() {
 
 // 主動發訊息給 Client App
 setTimeout(function() {
-	var get_userId = config.clientAppUserID;
-	var sendMsg = "Elderly Falling Down !!!!";
+	var get_userId = 'U63ecf035ad69cf2571e4322814f2c479';
+	var sendMsg = "hello world";
+	// linebot 傳送跌倒訊息
 	bot.push(get_userId, [sendMsg]);
 	console.log('userId: ' + get_userId);
 	console.log('send: ' + sendMsg);
-},100); // 0.1 seconds
-
-
+},100); 

@@ -5,9 +5,9 @@ const config = require('./config.json'),
 	util = require('util');
 
 let bot = linebot({
-	channelId: '1545688189',
-	channelSecret: '3d9fd88a284afa8b023c8a95ad39425e',
-	channelAccessToken: '4muvJafSuXaVcDO3WKUzMrQVUeyLnzK5pBb9As/cn+mGebIDwv7EvaxUpR+Rl+uEmEN4jEEuELt7sqd+id8ecEEa8ruOKp1YlSJJX01F1SUJ0g6MkrauV+0rs8xBtj6AIQmrKhV3KBjcsQUmyLhz2wdB04t89/1O/w1cDnyilFU='
+	channelId: 'channelId',
+	channelSecret: 'channelSecret',
+	channelAccessToken: 'channelAccessToken'
 });
 var FOODS=[];
 FOODS[0] = "水餃";
